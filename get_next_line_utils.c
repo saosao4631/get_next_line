@@ -6,7 +6,7 @@
 /*   By: ksaotome <ksaotome@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 21:20:17 by ksaotome          #+#    #+#             */
-/*   Updated: 2026/05/25 01:06:01 by ksaotome         ###   ########.fr       */
+/*   Updated: 2026/05/25 01:06:39 by ksaotome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,4 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
     }
     substr[i] = '\0';
     return (substr);
-ß}
+}

@@ -4,17 +4,9 @@ CFLAGS		:= -Wall -Wextra -Werror
 CPPFLAGS	:= -I.
 ARFLAGS		:= rcs
 
-SRCS		:= print_str.c \
-				print_ptr.c \
-				print_uint.c \
-				print_nbr.c \
-				print_hex.c \
-				print_char.c \
-				putchar_byte.c \
-				ft_printf.c \
-				print_live.c \
-				main.c
-
+SRCS		:= get_next_line.c \
+				get_next_line_utils.c
+				
 OUTDIR		:= .out
 OBJS		:= $(addprefix $(OUTDIR)/, $(SRCS:.c=.o))
 AR			:= ar

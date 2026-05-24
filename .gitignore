@@ -1,5 +1,4 @@
 *.out
 *.o
-/.claude
 
 .DS_Store

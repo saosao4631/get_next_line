@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksaotome <ksaotome@student.42.jp>          +#+  +:+       +#+        */
+/*   By: ksaotome <ksaotome@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 21:20:17 by ksaotome          #+#    #+#             */
-/*   Updated: 2026/05/25 01:06:39 by ksaotome         ###   ########.fr       */
+/*   Updated: 2026/05/26 20:12:05 by ksaotome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2 && s2[j])
 		joined[i++] = s2[j++];
 	joined[i] = '\0';
-	free((char *)s1);
 	return (joined);
 }
 

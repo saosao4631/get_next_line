@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksaotome <ksaotome@student.42.jp>          +#+  +:+       +#+        */
+/*   By: ksaotome <ksaotome@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 21:20:49 by ksaotome          #+#    #+#             */
-/*   Updated: 2026/05/26 02:09:20 by ksaotome         ###   ########.fr       */
+/*   Updated: 2026/05/26 20:21:02 by ksaotome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,25 @@ static char	*append_str(char *stash, char *buffer)
 static char	*fill_stash(int fd, char *stash)
 {
 	char	*buf;
-	ssize_t	bytes_read;
+	ssize_t	n;
 
+	if (stash && ft_strchr(stash, '\n'))
+		return (stash);
 	buf = malloc((size_t)BUFFER_SIZE + 1);
 	if (!buf)
+		return (free(stash), NULL);
+	n = read(fd, buf, BUFFER_SIZE);
+	while (n > 0)
 	{
-		free(stash);
-		return (NULL);
-	}
-	bytes_read = 1;
-	while (!ft_strchr(stash, '\n') && bytes_read > 0)
-	{
-		bytes_read = read(fd, buf, BUFFER_SIZE);
-		if (bytes_read == -1)
-		{
-			free(buf);
-			free(stash);
-			return (NULL);
-		}
-		buf[bytes_read] = '\0';
+		buf[n] = '\0';
 		stash = append_str(stash, buf);
+		if (!stash || ft_strchr(buf, '\n'))
+			break ;
+		n = read(fd, buf, BUFFER_SIZE);
 	}
 	free(buf);
+	if (n == -1 || !stash)
+		return (free(stash), NULL);
 	return (stash);
 }
 
